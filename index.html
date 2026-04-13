@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vythern | Medico × Systems Engineer</title>
+
+<title>Vythern | Systems Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -32,6 +33,28 @@ color:var(--text);
 overflow-x:hidden;
 }
 
+/* TERMINAL */
+#terminal{
+position:fixed;
+inset:0;
+background:#02030a;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+font-family:monospace;
+color:#22c55e;
+}
+
+.terminal-content{
+max-width:700px;
+width:90%;
+font-size:.9rem;
+line-height:1.6;
+white-space:pre-wrap;
+}
+
+/* BACKGROUND */
 body::before{
 content:"";
 position:fixed;
@@ -60,10 +83,43 @@ from{transform:translateY(-20px)}
 to{transform:translateY(20px)}
 }
 
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(5,6,10,.6);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);
+z-index:100;
+}
+
+.nav-inner{
+max-width:1100px;
+margin:auto;
+padding:18px 28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{font-weight:700}
+
+.nav a{
+margin-left:22px;
+font-size:.8rem;
+color:var(--sub);
+text-decoration:none;
+transition:.3s;
+}
+
+.nav a:hover{color:var(--primary)}
+
+/* LAYOUT */
 .container{
 max-width:1100px;
 margin:auto;
-padding:110px 28px 80px;
+padding:140px 28px 80px;
 }
 
 .hero{
@@ -77,14 +133,14 @@ gap:80px;
 font-size:clamp(3rem,5vw,4rem);
 font-weight:900;
 letter-spacing:-2px;
-background:linear-gradient(90deg,#ffffff,var(--primary));
+background:linear-gradient(90deg,#fff,var(--primary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .role{
 margin-top:12px;
-font-size:.85rem;
+font-size:.8rem;
 letter-spacing:3px;
 text-transform:uppercase;
 color:var(--muted);
@@ -94,7 +150,7 @@ color:var(--muted);
 margin-top:28px;
 font-size:1.05rem;
 color:var(--sub);
-max-width:640px;
+max-width:620px;
 line-height:1.7;
 }
 
@@ -103,7 +159,7 @@ display:inline-block;
 margin-top:36px;
 padding:12px 30px;
 border-radius:60px;
-font-size:.85rem;
+font-size:.8rem;
 border:1px solid var(--border);
 background:linear-gradient(145deg,#13151c,#0c0e14);
 color:var(--text);
@@ -114,12 +170,11 @@ transition:var(--transition);
 .btn:hover{
 transform:translateY(-4px);
 border-color:var(--primary);
+box-shadow:0 0 20px rgba(139,92,246,.3);
 }
 
-.hero-image{
-display:flex;
-justify-content:center;
-}
+/* PFP */
+.hero-image{display:flex;justify-content:center;}
 
 .pfp{
 width:290px;
@@ -151,10 +206,9 @@ opacity:.6;
 z-index:-1;
 }
 
-@keyframes spin{
-to{transform:rotate(360deg)}
-}
+@keyframes spin{to{transform:rotate(360deg)}}
 
+/* SECTIONS */
 .section{
 margin-top:110px;
 opacity:0;
@@ -179,19 +233,20 @@ margin-bottom:28px;
 background:var(--card);
 backdrop-filter:blur(20px);
 border-radius:20px;
-padding:38px;
+padding:32px;
 border:1px solid var(--border);
 transition:var(--transition);
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px) scale(1.01);
+box-shadow:0 20px 40px rgba(0,0,0,.35);
 border-color:var(--primary);
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:24px;
 }
 
@@ -223,10 +278,9 @@ border-bottom:1px solid var(--border);
 color:var(--sub);
 }
 
-.list-item:last-child{
-border-bottom:none;
-}
+.list-item:last-child{border-bottom:none}
 
+/* FOOTER */
 footer{
 margin-top:130px;
 text-align:center;
@@ -236,6 +290,7 @@ border-top:1px solid var(--border);
 padding-top:28px;
 }
 
+/* RESPONSIVE */
 @media(max-width:950px){
 .hero{grid-template-columns:1fr;text-align:center}
 .hero-image{order:-1;margin-bottom:40px}
@@ -246,17 +301,37 @@ padding-top:28px;
 
 <body>
 
+<!-- TERMINAL -->
+<div id="terminal">
+<div class="terminal-content" id="terminal-text"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+<div class="nav-inner">
+<div class="logo">Vythern</div>
+<nav>
+<a href="#profile">Profile</a>
+<a href="#stack">Stack</a>
+<a href="#projects">Work</a>
+<a href="#philosophy">Philosophy</a>
+</nav>
+</div>
+</header>
+
 <div class="container">
 
+<!-- HERO -->
 <div class="hero">
 <div>
 <h1>Vythern</h1>
-<div class="role">Medico × Systems Engineer</div>
+<div class="role">Systems Engineer • Medical Aspirant</div>
+
 <p>
-A future physician with an engineer’s mindset.  
-I study biological systems by day and architect distributed digital systems by night.  
-Medicine trains my precision. Programming fuels my obsession for structure, logic, and scalable design.
+I design structured backend systems with emphasis on scalability, performance, and clean architecture.  
+Currently preparing for medicine while applying engineering discipline to complex biological and digital systems.
 </p>
+
 <a href="https://github.com/vyythern" target="_blank" class="btn">Explore GitHub</a>
 </div>
 
@@ -267,80 +342,134 @@ Medicine trains my precision. Programming fuels my obsession for structure, logi
 </div>
 </div>
 
-<div class="section">
+<!-- PROFILE -->
+<div class="section" id="profile">
 <h2>Profile</h2>
 <div class="card">
-Preparing for medical school while engineering backend architectures.
-Strong focus on RESTful API design, database modeling, and long-term maintainable systems.
-Bridging biological complexity with computational scalability.
+Focused on backend systems, API architecture, and database design.  
+Approach combines analytical precision from medicine with structured engineering methodologies.
 </div>
 </div>
 
-<div class="section">
-<h2>Core Languages</h2>
+<!-- STACK -->
+<div class="section" id="stack">
+<h2>Core Stack</h2>
 <div class="grid">
 <div class="skill"><i class="devicon-javascript-plain"></i>JavaScript</div>
 <div class="skill"><i class="devicon-python-plain"></i>Python</div>
 <div class="skill"><i class="devicon-rust-plain"></i>Rust</div>
-</div>
-</div>
-
-<div class="section">
-<h2>Frameworks & Stack</h2>
-<div class="grid">
 <div class="skill"><i class="devicon-nodejs-plain"></i>Node.js</div>
 <div class="skill"><i class="devicon-express-original"></i>Express</div>
-<div class="skill"><i class="devicon-nextjs-original"></i>Next.js</div>
 <div class="skill"><i class="devicon-mongodb-plain"></i>MongoDB</div>
-<div class="skill"><i class="devicon-html5-plain"></i>EJS</div>
 </div>
 </div>
 
-<div class="section">
-<h2>Engineering Focus</h2>
+<!-- PROJECTS -->
+<div class="section" id="projects">
+<h2>Selected Work</h2>
+<div class="grid">
+
 <div class="card">
-<div class="list-item">Backend architecture & scalable API systems</div>
-<div class="list-item">Database schema optimization & performance tuning</div>
-<div class="list-item">Clean system structure & maintainability</div>
-<div class="list-item">Cross-disciplinary analytical thinking</div>
+<h3>Scalable API System</h3>
+<p>Structured REST backend with modular architecture.</p>
+</div>
+
+<div class="card">
+<h3>Database Optimization</h3>
+<p>Query tuning and indexing strategies for performance.</p>
+</div>
+
+<div class="card">
+<h3>Backend Architecture</h3>
+<p>Layered Node.js system with clean separation.</p>
+</div>
+
 </div>
 </div>
 
+<!-- PRINCIPLES -->
 <div class="section">
+<h2>Engineering Principles</h2>
+<div class="card">
+<div class="list-item">Design for scalability</div>
+<div class="list-item">Explicit over implicit</div>
+<div class="list-item">Optimize real bottlenecks</div>
+<div class="list-item">Systems that endure change</div>
+</div>
+</div>
+
+<!-- PHILOSOPHY -->
+<div class="section" id="philosophy">
 <h2>Philosophy</h2>
 <div class="card">
-Precision over hype.  
-Architecture before aesthetics.  
-Depth before speed.  
-Discipline across domains.
+Precision over noise.  
+Systems over shortcuts.  
+Depth over trend.  
+Consistency over intensity.
 </div>
 </div>
 
 <footer>
-© 2026 Vythern — Built with structured intent.
+© 2026 Vythern — Engineered, not assembled.
 </footer>
 
 </div>
 
 <script>
+
+// TERMINAL
+const lines=[
+"> initializing vythern.core",
+"> loading system architecture",
+"> calibrating precision modules",
+"> integrating biological logic",
+"> system ready"
+];
+
+const terminal=document.getElementById("terminal");
+const textEl=document.getElementById("terminal-text");
+
+let i=0,j=0;
+
+function type(){
+if(i<lines.length){
+if(j<lines[i].length){
+textEl.innerHTML+=lines[i][j++];
+setTimeout(type,25);
+}else{
+textEl.innerHTML+="\n";
+i++;j=0;
+setTimeout(type,200);
+}
+}else{
+setTimeout(()=>{
+terminal.style.opacity="0";
+setTimeout(()=>terminal.style.display="none",800);
+},700);
+}
+}
+
+type();
+
+// PFP TILT
 const pfp=document.getElementById("pfp");
 pfp.addEventListener("mousemove",e=>{
 const r=pfp.getBoundingClientRect();
 const x=e.clientX-r.left;
 const y=e.clientY-r.top;
-const rx=-(y-r.height/2)/18;
-const ry=(x-r.width/2)/18;
-pfp.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;
+pfp.style.transform=`rotateX(${-(y-r.height/2)/18}deg) rotateY(${(x-r.width/2)/18}deg)`;
 });
 pfp.addEventListener("mouseleave",()=>pfp.style.transform="rotateX(0) rotateY(0)");
 
-const sections=document.querySelectorAll(".section");
+// SCROLL REVEAL
 const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("visible")}
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add("visible");
 });
-},{threshold:.2});
-sections.forEach(section=>observer.observe(section));
+},{threshold:.15});
+
+document.querySelectorAll(".section").forEach(s=>observer.observe(s));
+
 </script>
 
 </body>
