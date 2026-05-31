@@ -4,7 +4,7 @@ Medico × Systems Engineer
 
 Personal portfolio representing the intersection of medicine and scalable backend engineering.
 
-🌐 Live: https://vyythern.github.io/Awaitryn
+🌐 Live: https://Awaitryn.github.io/Awaitryn
 
 ## Focus
 Backend architecture  
